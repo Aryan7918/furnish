@@ -14,8 +14,8 @@ return new class extends Migration
         // parent_id, status
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('slug');
+            $table->string('name')->nullable();
+            $table->string('slug')->nullable();
             $table->unsignedBigInteger('parent_id')->nullable();
             $table->foreign('parent_id')->references('id')->on('categories');
             $table->enum('status', ['active', 'inactive']);

@@ -5,6 +5,19 @@ namespace App\Models {
     /**
      * App\Models\Brand
      *
+     * @property \Illuminate\Support\Carbon|null $updated_at
+     * @property \Illuminate\Support\Carbon|null $created_at
+     * @property mixed $status
+     * @property string|null $slug
+     * @property string|null $name
+     * @property int $id
+     * @property-read mixed $logo
+     * @method static \Illuminate\Database\Eloquent\Builder<Brand>|Brand whereId($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Brand>|Brand whereName($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Brand>|Brand whereSlug($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Brand>|Brand whereStatus($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Brand>|Brand whereCreatedAt($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Brand>|Brand whereUpdatedAt($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Brand>|Brand newModelQuery()
      * @method static \Illuminate\Database\Eloquent\Builder<Brand>|Brand newQuery()
      * @method static \Illuminate\Database\Eloquent\Builder<Brand>|Brand query()
@@ -241,6 +254,18 @@ namespace App\Models {
     /**
      * App\Models\Cart
      *
+     * @property \Illuminate\Support\Carbon|null $updated_at
+     * @property \Illuminate\Support\Carbon|null $created_at
+     * @property int|null $quantity
+     * @property int $product_id
+     * @property int|null $user_id
+     * @property int $id
+     * @method static \Illuminate\Database\Eloquent\Builder<Cart>|Cart whereId($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Cart>|Cart whereUserId($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Cart>|Cart whereProductId($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Cart>|Cart whereQuantity($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Cart>|Cart whereCreatedAt($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Cart>|Cart whereUpdatedAt($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Cart>|Cart newModelQuery()
      * @method static \Illuminate\Database\Eloquent\Builder<Cart>|Cart newQuery()
      * @method static \Illuminate\Database\Eloquent\Builder<Cart>|Cart query()
@@ -477,6 +502,20 @@ namespace App\Models {
     /**
      * App\Models\Category
      *
+     * @property \Illuminate\Support\Carbon|null $updated_at
+     * @property \Illuminate\Support\Carbon|null $created_at
+     * @property mixed $status
+     * @property int|null $parent_id
+     * @property string|null $slug
+     * @property string|null $name
+     * @property int $id
+     * @method static \Illuminate\Database\Eloquent\Builder<Category>|Category whereId($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Category>|Category whereName($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Category>|Category whereSlug($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Category>|Category whereParentId($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Category>|Category whereStatus($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Category>|Category whereCreatedAt($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Category>|Category whereUpdatedAt($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Category>|Category newModelQuery()
      * @method static \Illuminate\Database\Eloquent\Builder<Category>|Category newQuery()
      * @method static \Illuminate\Database\Eloquent\Builder<Category>|Category query()
@@ -713,6 +752,18 @@ namespace App\Models {
     /**
      * App\Models\Order
      *
+     * @property \Illuminate\Support\Carbon|null $updated_at
+     * @property \Illuminate\Support\Carbon|null $created_at
+     * @property mixed $status
+     * @property float $total_price
+     * @property int $user_id
+     * @property int $id
+     * @method static \Illuminate\Database\Eloquent\Builder<Order>|Order whereId($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Order>|Order whereUserId($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Order>|Order whereTotalPrice($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Order>|Order whereStatus($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Order>|Order whereCreatedAt($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Order>|Order whereUpdatedAt($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Order>|Order newModelQuery()
      * @method static \Illuminate\Database\Eloquent\Builder<Order>|Order newQuery()
      * @method static \Illuminate\Database\Eloquent\Builder<Order>|Order query()
@@ -949,6 +1000,20 @@ namespace App\Models {
     /**
      * App\Models\OrderItem
      *
+     * @property \Illuminate\Support\Carbon|null $updated_at
+     * @property \Illuminate\Support\Carbon|null $created_at
+     * @property float|null $price
+     * @property int|null $quantity
+     * @property int $product_id
+     * @property int $order_id
+     * @property int $id
+     * @method static \Illuminate\Database\Eloquent\Builder<OrderItem>|OrderItem whereId($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<OrderItem>|OrderItem whereOrderId($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<OrderItem>|OrderItem whereProductId($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<OrderItem>|OrderItem whereQuantity($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<OrderItem>|OrderItem wherePrice($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<OrderItem>|OrderItem whereCreatedAt($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<OrderItem>|OrderItem whereUpdatedAt($value)
      * @method static \Illuminate\Database\Eloquent\Builder<OrderItem>|OrderItem newModelQuery()
      * @method static \Illuminate\Database\Eloquent\Builder<OrderItem>|OrderItem newQuery()
      * @method static \Illuminate\Database\Eloquent\Builder<OrderItem>|OrderItem query()
@@ -1185,6 +1250,16 @@ namespace App\Models {
     /**
      * App\Models\PhotoGallery
      *
+     * @property \Illuminate\Support\Carbon|null $updated_at
+     * @property \Illuminate\Support\Carbon|null $created_at
+     * @property string|null $image_path
+     * @property int $product_id
+     * @property int $id
+     * @method static \Illuminate\Database\Eloquent\Builder<PhotoGallery>|PhotoGallery whereId($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<PhotoGallery>|PhotoGallery whereProductId($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<PhotoGallery>|PhotoGallery whereImagePath($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<PhotoGallery>|PhotoGallery whereCreatedAt($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<PhotoGallery>|PhotoGallery whereUpdatedAt($value)
      * @method static \Illuminate\Database\Eloquent\Builder<PhotoGallery>|PhotoGallery newModelQuery()
      * @method static \Illuminate\Database\Eloquent\Builder<PhotoGallery>|PhotoGallery newQuery()
      * @method static \Illuminate\Database\Eloquent\Builder<PhotoGallery>|PhotoGallery query()
@@ -1421,6 +1496,30 @@ namespace App\Models {
     /**
      * App\Models\Product
      *
+     * @property \Illuminate\Support\Carbon|null $updated_at
+     * @property \Illuminate\Support\Carbon|null $created_at
+     * @property int $brand_id
+     * @property int $category_id
+     * @property mixed $status
+     * @property int|null $stock
+     * @property float|null $discount_price
+     * @property float|null $price
+     * @property string|null $description
+     * @property string|null $slug
+     * @property string|null $name
+     * @property int $id
+     * @method static \Illuminate\Database\Eloquent\Builder<Product>|Product whereId($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Product>|Product whereName($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Product>|Product whereSlug($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Product>|Product whereDescription($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Product>|Product wherePrice($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Product>|Product whereDiscountPrice($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Product>|Product whereStock($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Product>|Product whereStatus($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Product>|Product whereCategoryId($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Product>|Product whereBrandId($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Product>|Product whereCreatedAt($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Product>|Product whereUpdatedAt($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Product>|Product newModelQuery()
      * @method static \Illuminate\Database\Eloquent\Builder<Product>|Product newQuery()
      * @method static \Illuminate\Database\Eloquent\Builder<Product>|Product query()
@@ -1657,6 +1756,22 @@ namespace App\Models {
     /**
      * App\Models\Review
      *
+     * @property \Illuminate\Support\Carbon|null $updated_at
+     * @property \Illuminate\Support\Carbon|null $created_at
+     * @property mixed $status
+     * @property string|null $review_text
+     * @property int|null $rating
+     * @property int $product_id
+     * @property int $user_id
+     * @property int $id
+     * @method static \Illuminate\Database\Eloquent\Builder<Review>|Review whereId($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Review>|Review whereUserId($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Review>|Review whereProductId($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Review>|Review whereRating($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Review>|Review whereReviewText($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Review>|Review whereStatus($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Review>|Review whereCreatedAt($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Review>|Review whereUpdatedAt($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Review>|Review newModelQuery()
      * @method static \Illuminate\Database\Eloquent\Builder<Review>|Review newQuery()
      * @method static \Illuminate\Database\Eloquent\Builder<Review>|Review query()
@@ -1893,6 +2008,28 @@ namespace App\Models {
     /**
      * App\Models\ShippingAddress
      *
+     * @property \Illuminate\Support\Carbon|null $updated_at
+     * @property \Illuminate\Support\Carbon|null $created_at
+     * @property string|null $phone_number
+     * @property string|null $country
+     * @property string|null $zip_code
+     * @property string|null $state
+     * @property string|null $city
+     * @property string|null $address
+     * @property string|null $full_name
+     * @property int $user_id
+     * @property int $id
+     * @method static \Illuminate\Database\Eloquent\Builder<ShippingAddress>|ShippingAddress whereId($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<ShippingAddress>|ShippingAddress whereUserId($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<ShippingAddress>|ShippingAddress whereFullName($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<ShippingAddress>|ShippingAddress whereAddress($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<ShippingAddress>|ShippingAddress whereCity($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<ShippingAddress>|ShippingAddress whereState($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<ShippingAddress>|ShippingAddress whereZipCode($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<ShippingAddress>|ShippingAddress whereCountry($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<ShippingAddress>|ShippingAddress wherePhoneNumber($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<ShippingAddress>|ShippingAddress whereCreatedAt($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<ShippingAddress>|ShippingAddress whereUpdatedAt($value)
      * @method static \Illuminate\Database\Eloquent\Builder<ShippingAddress>|ShippingAddress newModelQuery()
      * @method static \Illuminate\Database\Eloquent\Builder<ShippingAddress>|ShippingAddress newQuery()
      * @method static \Illuminate\Database\Eloquent\Builder<ShippingAddress>|ShippingAddress query()
@@ -2383,6 +2520,16 @@ namespace App\Models {
     /**
      * App\Models\Wishlist
      *
+     * @property \Illuminate\Support\Carbon|null $updated_at
+     * @property \Illuminate\Support\Carbon|null $created_at
+     * @property int $product_id
+     * @property int $user_id
+     * @property int $id
+     * @method static \Illuminate\Database\Eloquent\Builder<Wishlist>|Wishlist whereId($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Wishlist>|Wishlist whereUserId($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Wishlist>|Wishlist whereProductId($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Wishlist>|Wishlist whereCreatedAt($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Wishlist>|Wishlist whereUpdatedAt($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Wishlist>|Wishlist newModelQuery()
      * @method static \Illuminate\Database\Eloquent\Builder<Wishlist>|Wishlist newQuery()
      * @method static \Illuminate\Database\Eloquent\Builder<Wishlist>|Wishlist query()

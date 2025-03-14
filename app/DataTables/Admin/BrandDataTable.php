@@ -6,10 +6,7 @@ use App\Models\Brand;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
-use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
-use Yajra\DataTables\Html\Editor\Editor;
-use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
 class BrandDataTable extends DataTable
@@ -23,14 +20,15 @@ class BrandDataTable extends DataTable
     {
         return (new EloquentDataTable($query))
             ->addColumn('action', function ($row) {
-                return '<a href="' . route('admin.brands.edit', $row->id) . '">
-                <i class="fa fa-edit"></i>
-                </a>
-                <button class="btn btn-danger delete-btn">
-                <i class="fa fa-trash"></i>
-                </a>';
+                $html = "<div class='d-flex gap-1'>";
+                $html .= "<a href='#' data-url=" .  route('admin.brands.edit', $row->id) . " data-title='Edit Brand' data-btn-text='Update'
+                            class='btn btn-primary btn-sm'><i class='fa fa-pencil'></i></a>";
+                $html .= "<a class='btn btn-danger delete-btn btn-sm' data-id='$row->id'><i class='fa fa-trash'></i></a>";
+                $html .= "</div>";
+                return $html;
             })
-            ->setRowId('id');
+            ->setRowId('id')
+            ->rawColumns(['action']);
     }
 
     /**
@@ -50,7 +48,7 @@ class BrandDataTable extends DataTable
             ->setTableId('data-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
-            //->dom('Bfrtip')
+            // ->dom('Bfrtip')
             ->orderBy(0)
             ->selectStyleSingle();
     }
@@ -63,8 +61,6 @@ class BrandDataTable extends DataTable
         return [
             Column::make('id'),
             Column::make('name'),
-            Column::make('created_at'),
-            Column::make('updated_at'),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)
