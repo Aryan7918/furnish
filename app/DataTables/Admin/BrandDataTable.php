@@ -27,8 +27,11 @@ class BrandDataTable extends DataTable
                 $html .= "</div>";
                 return $html;
             })
+            ->editColumn('logo', function ($row) {
+                return "<img src='" . asset($row->logo) . "'>";
+            })
             ->setRowId('id')
-            ->rawColumns(['action']);
+            ->rawColumns(['action', 'logo']);
     }
 
     /**
@@ -59,12 +62,13 @@ class BrandDataTable extends DataTable
     public function getColumns(): array
     {
         return [
-            Column::make('id'),
+            Column::make('id')->width(20),
+            Column::make('logo'),
             Column::make('name'),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)
-                ->width(60)
+                ->width(100)
                 ->addClass('text-center'),
         ];
     }

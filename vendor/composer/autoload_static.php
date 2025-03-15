@@ -41,6 +41,7 @@ class ComposerStaticInit05c609a03fc6d8e1bbce170755b3f9bf
         'ce9671a430e4846b44e1c68c7611f9f5' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery.php',
         'a1cfe24d14977df6878b9bf804af2d1c' => __DIR__ . '/..' . '/nunomaduro/collision/src/Adapters/Phpunit/Autoload.php',
         'ec07570ca5a812141189b1fa81503674' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Assert/Functions.php',
+        '4541a0e45fecdeff6b749c14790d825f' => __DIR__ . '/../..' . '/app/Helpers/Reply.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -207,12 +208,12 @@ class ComposerStaticInit05c609a03fc6d8e1bbce170755b3f9bf
         ),
         'Yajra\\DataTables\\' => 
         array (
-            0 => __DIR__ . '/..' . '/yajra/laravel-datatables-oracle/src',
-            1 => __DIR__ . '/..' . '/yajra/laravel-datatables-html/src',
-            2 => __DIR__ . '/..' . '/yajra/laravel-datatables-fractal/src',
-            3 => __DIR__ . '/..' . '/yajra/laravel-datatables-buttons/src',
-            4 => __DIR__ . '/..' . '/yajra/laravel-datatables-export/src',
-            5 => __DIR__ . '/..' . '/yajra/laravel-datatables-editor/src',
+            0 => __DIR__ . '/..' . '/yajra/laravel-datatables-buttons/src',
+            1 => __DIR__ . '/..' . '/yajra/laravel-datatables-editor/src',
+            2 => __DIR__ . '/..' . '/yajra/laravel-datatables-export/src',
+            3 => __DIR__ . '/..' . '/yajra/laravel-datatables-fractal/src',
+            4 => __DIR__ . '/..' . '/yajra/laravel-datatables-html/src',
+            5 => __DIR__ . '/..' . '/yajra/laravel-datatables-oracle/src',
         ),
         'Whoops\\' => 
         array (
@@ -572,6 +573,8 @@ class ComposerStaticInit05c609a03fc6d8e1bbce170755b3f9bf
     );
 
     public static $classMap = array (
+        'App\\DataTables\\Admin\\BrandDataTable' => __DIR__ . '/../..' . '/app/DataTables/Admin/BrandDataTable.php',
+        'App\\Helpers\\Reply' => __DIR__ . '/../..' . '/app/Helpers/Reply.php',
         'App\\Http\\Controllers\\Admin\\BrandController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/BrandController.php',
         'App\\Http\\Controllers\\Admin\\CategoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/CategoryController.php',
         'App\\Http\\Controllers\\Admin\\OrderController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/OrderController.php',
@@ -580,6 +583,7 @@ class ComposerStaticInit05c609a03fc6d8e1bbce170755b3f9bf
         'App\\Http\\Controllers\\Admin\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/UserController.php',
         'App\\Http\\Controllers\\AuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/AuthController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Requests\\BrandRequest' => __DIR__ . '/../..' . '/app/Http/Requests/BrandRequest.php',
         'App\\Http\\Requests\\LoginRequest' => __DIR__ . '/../..' . '/app/Http/Requests/LoginRequest.php',
         'App\\Http\\Requests\\RegisterRequest' => __DIR__ . '/../..' . '/app/Http/Requests/RegisterRequest.php',
         'App\\Models\\Brand' => __DIR__ . '/../..' . '/app/Models/Brand.php',
@@ -599,6 +603,7 @@ class ComposerStaticInit05c609a03fc6d8e1bbce170755b3f9bf
         'App\\View\\Components\\AdminScript' => __DIR__ . '/../..' . '/app/View/Components/AdminScript.php',
         'App\\View\\Components\\AdminSidebar' => __DIR__ . '/../..' . '/app/View/Components/AdminSidebar.php',
         'App\\View\\Components\\AdminStyle' => __DIR__ . '/../..' . '/app/View/Components/AdminStyle.php',
+        'App\\View\\Components\\AjaxModal' => __DIR__ . '/../..' . '/app/View/Components/AjaxModal.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'Brick\\Math\\BigDecimal' => __DIR__ . '/..' . '/brick/math/src/BigDecimal.php',
         'Brick\\Math\\BigInteger' => __DIR__ . '/..' . '/brick/math/src/BigInteger.php',

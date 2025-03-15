@@ -6,6 +6,8 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\DataTables\\Admin\\BrandDataTable' => $baseDir . '/app/DataTables/Admin/BrandDataTable.php',
+    'App\\Helpers\\Reply' => $baseDir . '/app/Helpers/Reply.php',
     'App\\Http\\Controllers\\Admin\\BrandController' => $baseDir . '/app/Http/Controllers/Admin/BrandController.php',
     'App\\Http\\Controllers\\Admin\\CategoryController' => $baseDir . '/app/Http/Controllers/Admin/CategoryController.php',
     'App\\Http\\Controllers\\Admin\\OrderController' => $baseDir . '/app/Http/Controllers/Admin/OrderController.php',
@@ -14,6 +16,7 @@ return array(
     'App\\Http\\Controllers\\Admin\\UserController' => $baseDir . '/app/Http/Controllers/Admin/UserController.php',
     'App\\Http\\Controllers\\AuthController' => $baseDir . '/app/Http/Controllers/AuthController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
+    'App\\Http\\Requests\\BrandRequest' => $baseDir . '/app/Http/Requests/BrandRequest.php',
     'App\\Http\\Requests\\LoginRequest' => $baseDir . '/app/Http/Requests/LoginRequest.php',
     'App\\Http\\Requests\\RegisterRequest' => $baseDir . '/app/Http/Requests/RegisterRequest.php',
     'App\\Models\\Brand' => $baseDir . '/app/Models/Brand.php',
@@ -33,6 +36,7 @@ return array(
     'App\\View\\Components\\AdminScript' => $baseDir . '/app/View/Components/AdminScript.php',
     'App\\View\\Components\\AdminSidebar' => $baseDir . '/app/View/Components/AdminSidebar.php',
     'App\\View\\Components\\AdminStyle' => $baseDir . '/app/View/Components/AdminStyle.php',
+    'App\\View\\Components\\AjaxModal' => $baseDir . '/app/View/Components/AjaxModal.php',
     'Attribute' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
     'Brick\\Math\\BigDecimal' => $vendorDir . '/brick/math/src/BigDecimal.php',
     'Brick\\Math\\BigInteger' => $vendorDir . '/brick/math/src/BigInteger.php',

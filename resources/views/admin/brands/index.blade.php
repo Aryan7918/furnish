@@ -24,11 +24,21 @@
                         processData: false,
                         contentType: false,
                         success: function(response) {
+                            $('#ajaxModal').modal('hide');
                             let table = $("#data-table");
                             table.DataTable().ajax.reload();
+                            toastr.success(response.message);
                         },
                         error: function(xhr, status, error) {
-                            console.log(xhr.responseText);
+                            $(".errorClass").text('');
+                            $(".form-control").removeClass('is-invalid');
+                            if (xhr.status == 422) {
+                                let errors = xhr.responseJSON.errors;
+                                $.each(errors, function(key, value) {
+                                    $("#" + key).addClass("is-invalid");
+                                    $("#" + key + "Error").text(value);
+                                });
+                            }
                         }
                     });
                 });
@@ -46,30 +56,58 @@
                         processData: false,
                         contentType: false,
                         success: function(response) {
+                            $('#ajaxModal').modal('hide');
                             let table = $("#data-table");
                             table.DataTable().ajax.reload();
+                            toastr.success(response.message);
                         },
                         error: function(xhr, status, error) {
-                            console.log(xhr.responseText);
+                            $(".errorClass").text('');
+                            $(".form-control").removeClass('is-invalid');
+                            if (xhr.status == 422) {
+                                let errors = xhr.responseJSON.errors;
+                                $.each(errors, function(key, value) {
+                                    $("#" + key).addClass("is-invalid");
+                                    $("#" + key + "Error").text(value);
+                                });
+                            } else {
+                                toastr.error(xhr.responseText);
+                            }
                         }
                     });
                 });
 
                 $(document).on('click', '.delete-btn', function(e) {
-                    e.preventDefault();
-                    let id = $(this).data('id');
-                    let url = "{{ route('admin.brands.destroy', '/id') }}";
-                    url = url.replace('/id', id);
-                    $.ajax({
-                        type: "DELETE",
-                        url: url,
-                        success: function(response) {
-                            let table = $("#data-table");
-                            table.DataTable().ajax.reload();
+                    Swal.fire({
+                        title: "Are you sure?",
+                        text: "You won't be able to revert this!",
+                        icon: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#3085d6",
+                        cancelButtonColor: "#d33",
+                        confirmButtonText: "Yes, delete it!"
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            e.preventDefault();
+                            let id = $(this).data('id');
+                            let url = "{{ route('admin.brands.destroy', '/id') }}";
+                            url = url.replace('/id', id);
+                            $.ajax({
+                                type: "DELETE",
+                                url: url,
+                                success: function(response) {
+                                    toastr.success(response.message);
+                                    let table = $("#data-table");
+                                    table.DataTable().ajax.reload();
+                                },
+                                error: function(xhr, status, error) {
+                                    toastr.error(xhr.responseText);
+                                }
+                            });
                         }
                     });
+                });
 
-                })
             });
         </script>
     @endpush

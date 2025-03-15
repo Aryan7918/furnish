@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Admin;
 
 use App\DataTables\Admin\BrandDataTable;
+use App\Helpers\Reply;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\BrandRequest;
 use App\Models\Brand;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class BrandController extends Controller
@@ -43,15 +45,9 @@ class BrandController extends Controller
             }
             $attributes['slug'] = Str::slug($attributes['name']);
             Brand::create($attributes);
-            return response()->json([
-                'success' => true,
-                'message' => 'Brand added successfully!',
-            ]);
+            return Reply::success('Brand added successfully');
         } catch (Exception $e) {
-            return response()->json([
-                'success' => false,
-                'message' => $e->getMessage(),
-            ]);
+            return Reply::error($e->getMessage());
         }
     }
 
@@ -74,37 +70,42 @@ class BrandController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Brand $brand)
+    public function update(BrandRequest $request, Brand $brand)
     {
-        // $oldPath = 'public/images/brands/' . $brand->getRawOriginal('logo');
-        dd($brand->logo);
         $attributes = $request->validated();
         try {
             if ($request->has('logo')) {
+                $path = 'images/brands/' . $brand->getRawOriginal('logo');
+                if ($brand->getRawOriginal('logo') && Storage::disk('public')->exists($path)) {
+                    Storage::disk('public')->delete($path);
+                }
                 $file = $request->file('logo');
                 $fileName = "brand_" . time() . "." . $file->getClientOriginalExtension();
                 $file->storeAs('images/brands', $fileName, 'public');
                 $attributes['logo'] = $fileName;
             }
             $attributes['slug'] = Str::slug($attributes['name']);
-            Brand::create($attributes);
-            return response()->json([
-                'success' => true,
-                'message' => 'Brand added successfully!',
-            ]);
+            $brand->update($attributes);
+            return Reply::success('Brand updated successfully');
         } catch (Exception $e) {
-            return response()->json([
-                'success' => false,
-                'message' => $e->getMessage(),
-            ]);
+            return Reply::error('Failed to update brand');
         }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Brand $brand)
     {
-        //
+        try {
+            $path = 'images/brands/' . $brand->getRawOriginal('logo');
+            if ($brand->getRawOriginal('logo') && Storage::disk('public')->exists($path)) {
+                Storage::disk('public')->delete($path);
+            }
+            $brand->delete();
+            return Reply::success('Brand deleted successfully');
+        } catch (Exception $e) {
+            return Reply::error('Failed to delete brand');
+        }
     }
 }

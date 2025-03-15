@@ -9,6 +9,9 @@
 
 <link rel="stylesheet" href="{{ asset('assets/vendors/datatables.net-bs4/dataTables.bootstrap4.css') }}">
 {{-- <link rel="stylesheet" href="{{ asset('assets/css/select.dataTables.min.css') }}"> --}}
-
+<link rel="stylesheet" href="{{ asset('assets/vendors/dropify/dropify.min.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/vendors/toastr/toastr.min.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/vendors/sweet-alert/sweetalert2.min.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/css/admin-custom.css') }}">
 <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}" />
