@@ -6,5 +6,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
-    protected $guarded = [];
+    protected $fillable = [
+        'name',
+        'slug',
+        'parent_id',
+        'status'
+    ];
+    // children & parent relationship
+    public function children()
+    {
+        return $this->hasMany(Category::class, 'parent_id', 'id');
+    }
+    public function parent()
+    {
+        return $this->belongsTo(Category::class, 'parent_id', 'id');
+    }
 }

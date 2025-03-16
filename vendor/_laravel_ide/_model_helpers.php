@@ -509,6 +509,9 @@ namespace App\Models {
      * @property string|null $slug
      * @property string|null $name
      * @property int $id
+     * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Category> $children
+     * @property-read int|null $children_count
+     * @property-read \App\Models\Category $parent
      * @method static \Illuminate\Database\Eloquent\Builder<Category>|Category whereId($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Category>|Category whereName($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Category>|Category whereSlug($value)
