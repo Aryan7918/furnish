@@ -18,7 +18,7 @@ class AdminSidebar extends Component
         $this->menus = [
             [
                 'title' => 'Dashboard',
-                'icon' => 'mdi-home',
+                'icon' => 'mdi mdi-grid-large',
                 'route' => 'admin.dashboard',
                 'submenu' => [],
             ],
@@ -28,12 +28,12 @@ class AdminSidebar extends Component
                 'route' => 'admin.brands.index',
                 'submenu' => [],
             ],
-            // [
-            //     'title' => 'Categories',
-            //     'icon' => 'mdi mdi-tag',
-            //     'route' => 'categories.index',
-            //     'submenu' => [],
-            // ],
+            [
+                'title' => 'Categories',
+                'icon' => 'mdi mdi-tag',
+                'route' => 'admin.categories.index',
+                'submenu' => [],
+            ],
             // [
             //     'title' => 'Products',
             //     'icon' => 'mdi mdi-tag',

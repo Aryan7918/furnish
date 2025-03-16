@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="{{ asset('assets/vendors/dropify/dropify.min.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/vendors/toastr/toastr.min.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/vendors/sweet-alert/sweetalert2.min.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/vendors/select2/select2.min.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/css/admin-custom.css') }}">
 <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}" />

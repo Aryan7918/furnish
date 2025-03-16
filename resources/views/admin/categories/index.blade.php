@@ -1,9 +1,9 @@
 <x-admin-master>
     <div class="card shadow-sm">
         <div class="card-header d-flex justify-content-between align-items-center bg-white">
-            <h3 class="mb-0 mx-2">Brands</h3>
-            <a href="#" data-url="{{ route('admin.brands.create') }}" data-title="Add Brand" data-btn-text="Save"
-                class="btn btn-primary">Add Brand</a>
+            <h3 class="mb-0 mx-2">Categories</h3>
+            <a href="#" data-url="{{ route('admin.categories.create') }}" data-title="Add Category"
+                data-btn-text="Save" class="btn btn-primary">Add Category</a>
         </div>
         <div class="card-body">
             {!! $dataTable->table(['class' => 'table table-hover table-bordered table-striped']) !!}
@@ -13,10 +13,10 @@
         {!! $dataTable->scripts() !!}
         <script>
             $(document).ready(function() {
-                $(document).on('submit', '#addBrandForm', function(e) {
+                $(document).on('submit', '#addCategoryForm', function(e) {
                     e.preventDefault();
                     let formData = new FormData(this);
-                    let url = "{{ route('admin.brands.store') }}";
+                    let url = "{{ route('admin.categories.store') }}";
                     $.ajax({
                         type: "POST",
                         url: url,
@@ -43,11 +43,11 @@
                     });
                 });
 
-                $(document).on('submit', '#editBrandForm', function(e) {
+                $(document).on('submit', '#editCategoryForm', function(e) {
                     e.preventDefault();
                     let formData = new FormData(this);
-                    let id = $('#editBrandSave').data('id');
-                    let url = "{{ route('admin.brands.update', '/id') }}";
+                    let id = $('#editCategorySave').data('id');
+                    let url = "{{ route('admin.categories.update', '/id') }}";
                     url = url.replace('/id', id);
                     $.ajax({
                         type: "POST",
@@ -90,7 +90,7 @@
                         if (result.isConfirmed) {
                             e.preventDefault();
                             let id = $(this).data('id');
-                            let url = "{{ route('admin.brands.destroy', '/id') }}";
+                            let url = "{{ route('admin.categories.destroy', '/id') }}";
                             url = url.replace('/id', id);
                             $.ajax({
                                 type: "DELETE",
