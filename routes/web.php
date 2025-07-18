@@ -30,3 +30,8 @@ Route::group(
         Route::resource('products', ProductController::class);
     }
 );
+
+// Fallback route
+Route::fallback(function () {
+    return view('page-404');
+});
