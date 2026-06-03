@@ -234,10 +234,11 @@ $translator = new class
         $arrayDepth = -1;
         $depthKeys = [];
 
-        foreach ($tokens as $token) {
+        foreach ($tokens as $index => $token) {
             if (!is_array($token)) {
                 if ($token === '[') {
                     $inArrayKey = true;
+                    $currentIndex = 0;
                     $arrayDepth++;
                 }
 
@@ -255,6 +256,15 @@ $translator = new class
             }
 
             if ($inArrayKey && $token[0] === T_CONSTANT_ENCAPSED_STRING) {
+                $nextToken = isset($tokens[$index + 1]) ? $tokens[$index + 1] : null;
+                $nextValue = isset($nextToken[1]) ? $nextToken[1] : $nextToken;
+
+                if ($nextValue === ',' || str_contains($nextValue, "\n")) {
+                    $token[1] = $currentIndex;
+
+                    $currentIndex++;
+                }
+
                 $depthKeys[$arrayDepth] = trim($token[1], '"\'');
 
                 \Illuminate\Support\Arr::set($found, implode('.', $depthKeys), $token[2]);
@@ -383,16 +393,20 @@ $translator = new class
 
     protected function fromPhpFile($file, $path, $namespace)
     {
-        $key = pathinfo($file, PATHINFO_FILENAME);
+        $lang = str($file)
+            ->after($path.DIRECTORY_SEPARATOR)
+            ->before(DIRECTORY_SEPARATOR)
+            ->value();
+
+        $key = str($file)
+            ->after($path.DIRECTORY_SEPARATOR)
+            ->after(DIRECTORY_SEPARATOR)
+            ->replaceLast('.php', '')
+            ->value();
 
         if ($namespace) {
             $key = "{$namespace}::{$key}";
         }
-
-        $lang = collect(explode(DIRECTORY_SEPARATOR, str_replace($path, "", $file)))
-            ->filter()
-            ->slice(-2, 1)
-            ->first();
 
         $relativePath = $this->getPathIndex($file);
         $lines = $this->linesFromPhpFile($file);

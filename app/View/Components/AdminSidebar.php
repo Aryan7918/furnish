@@ -34,13 +34,13 @@ class AdminSidebar extends Component
                 'route' => 'admin.categories.index',
                 'submenu' => [],
             ],
-            // [
-            //     'title' => 'Products',
-            //     'icon' => 'mdi mdi-tag',
-            //     'route' => 'products.index',
-            //     'submenu' => [],
-            // ],
-            // [
+            [
+                'title' => 'Products',
+                'icon' => 'mdi mdi-tag',
+                'route' => 'admin.products.index',
+                'submenu' => [],
+            ]
+            //, [
             //     'title' => 'Settings',
             //     'icon' => 'mdi-settings',
             //     'route' => null, // No direct link, it's a dropdown
